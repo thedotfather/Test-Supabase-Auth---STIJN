@@ -4,7 +4,7 @@ export const PLASMIC = initPlasmicLoader({
   projects: [
     {
       id: "fpRbHrqwJoPZZqxH9FoEy8",
-      token: "ufgoxMpR2XG5vNyarx0dDmxsBS3LUpuCCgwpfPIr70k7ywrLFvLQtsUL5iykD4nB9C5CoaFgeFtT2SUynqAcg",
+      token: "sV2xBemYxCSJcHEj0G1Pex4dlsFOGcIRafMNULc8JMSS2naKBZe7P2wZZDfx5RuYcfs3vA2g2N2WqEU9YhiA",
     },
   ],
 
