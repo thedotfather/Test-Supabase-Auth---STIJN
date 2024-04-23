@@ -1,5 +1,5 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-import testFunctionStijn from "../Test-Supabase-Auth---STIJN/functions/testFunctionStijn"
+import testFunctionStijn from "./functions/testFunctionStijn"
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
