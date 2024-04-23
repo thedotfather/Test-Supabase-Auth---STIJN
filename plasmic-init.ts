@@ -1,4 +1,5 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import { testFunctionStijn } from "../functions"
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -23,3 +24,16 @@ export const PLASMIC = initPlasmicLoader({
 // https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
 
 // PLASMIC.registerComponent(...);
+
+
+// Register custom function
+PLASMIC.registerFunction(testFunctionStijn, {
+  name: 'testFunctionStijn',
+  params: [
+    {
+      name: 'targMsg',
+      type: 'string',
+      description: 'The message to log in console'
+    }
+  ]
+});
