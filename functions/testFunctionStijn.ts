@@ -1,9 +1,9 @@
 import { ensurePlasmicAppUser } from '@plasmicapp/auth-api';
 
-export default function testLogToConsole(targMsg:string) {
+export default async function testLogToConsole(targMsg:string) {
     console.log("IK BEN INGELOGD:  " + targMsg);
 
-    authCallback();
+    await authCallback();
 
 }
 
