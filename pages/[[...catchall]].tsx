@@ -11,31 +11,31 @@ import Error from "next/error";
 import { useRouter } from "next/router";
 import { PLASMIC } from "@/plasmic-init";
 
-const targUser = 
-{
-  "email": 
-  "stijnehdevos@gmail.com",
+import { getPlasmicAppUserFromToken } from '@plasmicapp/auth-api';
+
+const targUserToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6ImZwUmJIcnF3Sm9QWlpxeEg5Rm9FeTgiLCJlbmRVc2VySWQiOiJlNjA3YjdjMy0xOTAyLTQ2NTgtOWU0Ni0wN2JmMTVhZTQzOWEiLCJpYXQiOjE3MTM5NjY4OTUsImV4cCI6MTcxNDU3MTY5NX0.8VMhSoJ25AGiDO_nqlbVIK3mmYwt4TBvqTjDdJL91eA";
+var targUser = {
+  "email": "",
   "externalId": null,
-  "roleId": "a79ce5ef-c7ca-4c7b-a66e-6e08d820b88b",
-  "roleName": "Normal User",
+  "roleId": "",
+  "roleName": "",
   "roleOrder": 1,
-  "roleIds": [
-    "a79ce5ef-c7ca-4c7b-a66e-6e08d820b88b",
-    "cf839b0e-e7a2-43e8-98b3-71a97b0eaebe"
-  ],
-  "roleNames": [
-    "Normal User",
-    "Anonymous"
-  ],
+  "roleIds": [],
+  "roleNames": [],
   "properties": {},
   "customProperties": {},
-  "isLoggedIn": true
-  }
+  "isLoggedIn": false
+  };
 
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
   queryCache?: Record<string, any>;
 }) {
+
+  // Check user logged in
+  targUser = getPlasmicAppUserFromToken({ targUserToken });
+
+  // Default code
   const { plasmicData, queryCache } = props;
   const router = useRouter();
   if (!plasmicData || plasmicData.entryCompMetas.length === 0) {
@@ -66,6 +66,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // non-Plasmic catch-all
     return { props: {} };
   }
+
+  // Check user logged in
+  targUser = getPlasmicAppUserFromToken({ targUserToken });
+
   const pageMeta = plasmicData.entryCompMetas[0];
   // Cache the necessary data fetched for the page
   const queryCache = await extractPlasmicQueryData(
