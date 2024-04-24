@@ -1,6 +1,7 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 import testFunctionStijn from "./functions/testFunctionStijn";
 import testFunctionStijn2 from "./pages/api/testFunctionStijn2";
+import performGetPlasmicAppUserFromToken from "./functions/customAuthFunctionsSTIJN";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -47,6 +48,18 @@ PLASMIC.registerFunction(testFunctionStijn2, {
       name: 'targMsg',
       type: 'string',
       description: 'The message to log in console'
+    }
+  ]
+});
+
+// Register custom function
+PLASMIC.registerFunction(performGetPlasmicAppUserFromToken, {
+  name: 'performGetPlasmicAppUserFromToken',
+  params: [
+    {
+      name: 'plasmicUserToken',
+      type: 'string',
+      description: 'The token you received by running EnsurePlasmicUser'
     }
   ]
 });
