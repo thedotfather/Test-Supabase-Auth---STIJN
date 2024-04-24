@@ -11,6 +11,26 @@ import Error from "next/error";
 import { useRouter } from "next/router";
 import { PLASMIC } from "@/plasmic-init";
 
+const targUser = 
+{
+  "email": "stijnehdevos@gmail.com",
+  "externalId": null,
+  "roleId": "a79ce5ef-c7ca-4c7b-a66e-6e08d820b88b",
+  "roleName": "Normal User",
+  "roleOrder": 1,
+  "roleIds": [
+    "5ee45966-56bc-4af2-b12b-077a7134b43c",
+    "a82967a2-27a9-451a-8e23-82fa84311c12"
+  ],
+  "roleNames": [
+    "Normal User",
+    "Anonymous"
+  ],
+  "properties": {},
+  "customProperties": {},
+  "isLoggedIn": true
+};
+
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
   queryCache?: Record<string, any>;
@@ -29,6 +49,8 @@ export default function PlasmicLoaderPage(props: {
       pageRoute={pageMeta.path}
       pageParams={pageMeta.params}
       pageQuery={router.query}
+
+      user = {targUser}
     >
       <PlasmicComponent component={pageMeta.displayName} />
     </PlasmicRootProvider>
@@ -51,6 +73,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
       prefetchedData={plasmicData}
       pageRoute={pageMeta.path}
       pageParams={pageMeta.params}
+
+      user = {targUser}
     >
       <PlasmicComponent component={pageMeta.displayName} />
     </PlasmicRootProvider>
