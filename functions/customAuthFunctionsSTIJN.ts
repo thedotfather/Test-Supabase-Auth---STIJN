@@ -5,7 +5,7 @@ import { PLASMIC } from '../plasmic-init';
 
 export default function performGetPlasmicAppUserFromToken(plasmicUserToken: string) {
     
-    const { user: plasmicUser } = getPlasmicAppUserFromToken({ token: plasmicUserToken });
+    getPlasmicAppUserFromToken({ token: plasmicUserToken });
     console.log("TEST | Executed getPlasmicAppUserFromToken");
 
 }
