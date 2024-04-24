@@ -13,14 +13,15 @@ import { PLASMIC } from "@/plasmic-init";
 
 const targUser = 
 {
-  "email": "stijnehdevos@gmail.com",
+  "email": 
+  "stijnehdevos@gmail.com",
   "externalId": null,
   "roleId": "a79ce5ef-c7ca-4c7b-a66e-6e08d820b88b",
   "roleName": "Normal User",
   "roleOrder": 1,
   "roleIds": [
-    "5ee45966-56bc-4af2-b12b-077a7134b43c",
-    "a82967a2-27a9-451a-8e23-82fa84311c12"
+    "a79ce5ef-c7ca-4c7b-a66e-6e08d820b88b",
+    "cf839b0e-e7a2-43e8-98b3-71a97b0eaebe"
   ],
   "roleNames": [
     "Normal User",
@@ -29,7 +30,7 @@ const targUser =
   "properties": {},
   "customProperties": {},
   "isLoggedIn": true
-};
+  }
 
 export default function PlasmicLoaderPage(props: {
   plasmicData?: ComponentRenderData;
